@@ -1,0 +1,13 @@
+.hero{
+    animation: animate 1s infinite ease alternate;
+    width: 800px;
+    height: 600px;
+
+}
+
+@keyframes animate {
+   to{
+        transform: translateY(30px);
+    }
+    
+}
