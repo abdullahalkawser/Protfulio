@@ -17,11 +17,12 @@ const Hero = () => {
 <div>
   <figure className="">
     <img
-      src="https://scontent.fjsr1-1.fna.fbcdn.net/v/t39.30808-6/333059786_1405026866960826_534424273630314046_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=f727a1&_nc_eui2=AeHjsIxVBnb3YYqQ-pATaFcjaK1XspQpP21orVeylCk_ba-O9SwK0e0ud1vAhIgdtoRRWzcHzd2x6uiw22W1_j5w&_nc_ohc=WQgRHtE7YsUQ7kNvgGhaT4l&_nc_zt=23&_nc_ht=scontent.fjsr1-1.fna&oh=00_AYCUCoZsW9Xn6yVHsnvvRHxDy0-JR13WgAEVTN208RC9Uw&oe=668B60AE"
+      src="https://media.licdn.com/dms/image/D5603AQGalZoGF-u-qQ/profile-displayphoto-shrink_800_800/0/1711973608108?e=1726704000&v=beta&t=f7rGxv-hzN6Q00nrpO_Bwz3i2vQ4LNRm573mAfwosr0"
       alt="Shoes"
       className="rounded-xl" />
   </figure>
   <div className="card-body items-center text-center">
+    <h1 className="font-semibold">ABDULLAH AL KAWSER</h1>
     <h2 className="text-xl font-bold" >Software Engineer</h2>
 
     <hr  className= 'text-blue' />
