@@ -1,104 +1,120 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
 
-const Contact = () => {
-  return (
-    <div className="mx-7">
-      <div className="contact-form mt-16 flex flex-wrap justify-between items-center">
-        {/* Form Section */}
-        <motion.form
-          className="w-full md:w-1/2 space-y-8"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Get In Touch</h2>
 
-          <motion.div
-            className="flex flex-wrap -mx-2 space-y-4 md:space-y-0"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <div className="w-full md:w-1/2 px-2">
-              <input
-                type="text"
-                className="form-control w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-                placeholder="First Name"
-              />
-            </div>
-            <div className="w-full md:w-1/2 px-2">
-              <input
-                type="text"
-                className="form-control w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-                placeholder="Last Name"
-              />
-            </div>
-          </motion.div>
+const MultiStepForm = () => {
+  const [step, setStep] = useState(1);
+  const [formData, setFormData] = useState({
+    intro: '',
+    interest: '',
+    budget: '',
+  });
 
-          <motion.div
-            className="flex flex-wrap -mx-2 space-y-4 md:space-y-0"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <div className="w-full md:w-1/2 px-2">
-              <input
-                type="email"
-                className="form-control w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-                placeholder="E-mail"
-              />
-            </div>
-            <div className="w-full md:w-1/2 px-2">
-              <input
-                type="text"
-                className="form-control w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-                placeholder="Phone"
-              />
-            </div>
-          </motion.div>
+  const nextStep = () => setStep(step + 1);
+  const prevStep = () => setStep(step - 1);
 
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const renderStep = () => {
+    switch (step) {
+      case 1:
+        return (
+          <div className="flex flex-col items-center">
+            <h2 className="text-2xl font-bold text-white mb-4">WE WANT TO GET TO KNOW YOU 😊</h2>
+            <p className="text-sm text-yellow-300 mb-2">SOUNDS GOOD! ⭐ ANYTHING ELSE YOU WANT US TO KNOW?</p>
             <textarea
-              rows="5"
-              placeholder="Message"
-              className="form-control w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-            ></textarea>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            <input
-              type="submit"
-              className="send-btn w-full p-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300 cursor-pointer"
-              value="Send Message"
+              name="intro"
+              value={formData.intro}
+              onChange={handleChange}
+              className="w-full h-32 p-4 rounded-lg bg-white bg-opacity-10 text-white placeholder-gray-400 focus:outline-none"
+              placeholder="This is optional... or go ahead and write a 5-page essay (MLA format of course 🥳)"
             />
-          </motion.div>
-        </motion.form>
+            <div className="flex justify-between w-full mt-6">
+              <button className="px-6 py-2 text-white rounded-full border border-white opacity-50">PREVIOUS</button>
+              <button onClick={nextStep} className="px-6 py-2 bg-white text-purple-600 rounded-full">SEND</button>
+            </div>
+          </div>
+        );
+      case 2:
+        return (
+          <div className="flex flex-col items-center">
+            <h2 className="text-2xl font-bold text-white mb-4">WE WANT TO GET TO KNOW YOU 😊</h2>
+            <p className="text-sm text-yellow-300 mb-4">NICE NAME! ⭐ WHAT BEST EXPLAINS YOU?</p>
+            <div className="grid grid-cols-3 gap-4">
+              {['Products', 'Services', 'SaaS', 'Personality', 'Other'].map((option) => (
+                <button
+                  key={option}
+                  name="interest"
+                  value={option}
+                  onClick={() => {
+                    setFormData({ ...formData, interest: option });
+                    nextStep();
+                  }}
+                  className={`w-20 h-20 rounded-full flex items-center justify-center text-sm font-semibold ${
+                    formData.interest === option ? 'bg-white text-purple-600' : 'bg-black bg-opacity-50 text-white'
+                  }`}
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+            <div className="flex justify-between w-full mt-6">
+              <button onClick={prevStep} className="px-6 py-2 text-white rounded-full border border-white">PREVIOUS</button>
+              <button onClick={nextStep} className="px-6 py-2 bg-white text-purple-600 rounded-full">NEXT</button>
+            </div>
+          </div>
+        );
+      case 3:
+        return (
+          <div className="flex flex-col items-center">
+            <h2 className="text-2xl font-bold text-white mb-4">WE WANT TO GET TO KNOW YOU 😊</h2>
+            <p className="text-sm text-yellow-300 mb-4">NICE! ⭐ WHAT'S YOUR MONTHLY BUDGET?</p>
+            <div className="grid grid-cols-3 gap-4">
+              {['$1K-2K/mo', '3K-4K/mo', '5K-7K/mo', '8K+/mo', 'Other'].map((option) => (
+                <button
+                  key={option}
+                  name="budget"
+                  value={option}
+                  onClick={() => {
+                    setFormData({ ...formData, budget: option });
+                    nextStep();
+                  }}
+                  className={`w-20 h-20 rounded-full flex items-center justify-center text-sm font-semibold ${
+                    formData.budget === option ? 'bg-white text-purple-600' : 'bg-black bg-opacity-50 text-white'
+                  }`}
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+            <div className="flex justify-between w-full mt-6">
+              <button onClick={prevStep} className="px-6 py-2 text-white rounded-full border border-white">PREVIOUS</button>
+              <button onClick={nextStep} className="px-6 py-2 bg-white text-purple-600 rounded-full">NEXT</button>
+            </div>
+          </div>
+        );
+      case 4:
+        return (
+          <div className="flex flex-col items-center">
+            <h2 className="text-2xl font-bold text-white mb-4">THANK YOU FOR SUBMITTING, WE'RE EXCITED TO CHAT!</h2>
+            <p className="text-sm text-white mb-4">WE WILL REACH OUT TO YOU SOON!</p>
+            <button onClick={() => setStep(1)} className="px-6 py-2 bg-white text-purple-600 rounded-full">CLOSE</button>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
 
-        {/* Image Section */}
-        <motion.div
-          className="w-full md:w-1/2 mt-8 md:mt-0 flex justify-center"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
-        >
-          <img
-            src="/contact-png.png"
-            alt="Contact"
-            className="w-full md:w-4/5 max-w-xs rounded-lg shadow-lg"
-          />
-        </motion.div>
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl p-20">
+      <div className="relative bg-white bg-opacity-10 rounded-2xl p-8 w-full max-w-md">
+        <div className="absolute top-4 right-4 text-white">{`0${step}/04`}</div>
+        {renderStep()}
       </div>
     </div>
   );
 };
 
-export default Contact;
+export default MultiStepForm;

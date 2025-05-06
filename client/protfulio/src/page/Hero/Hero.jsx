@@ -6,7 +6,7 @@ import { FaFacebook, FaGithub, FaInstagram } from "react-icons/fa6";
 
 const Hero = () => {
   return (
-    <div className="p-6 flex flex-col items-center text-white space-y-6 bg-gradient-to-b from-[#1e3a8a] to-[#312e81] rounded-xl shadow-2xl backdrop-blur-md">
+    <div className="p-6 flex flex-col items-center text-white space-y-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl rounded-xl shadow-2xl backdrop-blur-md">
 
       {/* Avatar & Name */}
       <div className="flex flex-col items-center space-y-3">

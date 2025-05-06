@@ -1,54 +1,61 @@
 import { Link } from 'react-router-dom';
+import { Menu, GraduationCap, Folder, PenTool, PhoneCall, Info } from 'lucide-react';
 
 function Navbar() {
   const nav = (
     <>
-     
-      <li><Link to="/about">About</Link></li>
-      <li><Link to="/Resume">Education</Link></li>
-      <li><Link to="/Portfolio">Portfolio</Link></li>
-      
-      <li><Link to="/Blog">Blog</Link></li>
-      <li><Link to="/contact">Contact</Link></li>
+      <li>
+        <Link to="/about" className="flex items-center gap-2 text-indigo-400 hover:text-blue-400">
+          <Info size={18} /> About
+        </Link>
+      </li>
+      <li>
+        <Link to="/Resume" className="flex items-center gap-2 text-indigo-400 hover:text-blue-400">
+          <GraduationCap size={18} /> Education
+        </Link>
+      </li>
+      <li>
+        <Link to="/Portfolio" className="flex items-center gap-2 text-indigo-400 hover:text-blue-400">
+          <Folder size={18} /> Portfolio
+        </Link>
+      </li>
+      <li>
+        <Link to="/Blog" className="flex items-center gap-2 text-indigo-400 hover:text-blue-400">
+          <PenTool size={18} /> Blog
+        </Link>
+      </li>
+      <li>
+        <Link to="/contact" className="flex items-center gap-2 text-indigo-400 hover:text-blue-400">
+          <PhoneCall size={18} /> Contact
+        </Link>
+      </li>
     </>
   );
 
   return (
-    
-    <div>
-      <div className="navbar ">
-        <div className="navbar-start">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16" />
-              </svg>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 w-52 p-2 shadow bg-base-100 rounded-box z-[1]">
-              {nav}
-            </ul>
+    <div className="navbar bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xlshadow-md px-4">
+      <div className="navbar-start">
+        <div className="dropdown">
+          <div tabIndex={0} role="button" className="btn btn-ghost text-indigo-300 lg:hidden">
+            <Menu size={24} />
           </div>
-          <a className=" pl-7 text-xl font-bold">ABDULLAH</a>
-        </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content mt-3 w-52 p-2 shadow bg-[#2c2c3a] rounded-box z-[1]">
             {nav}
           </ul>
         </div>
-  
+        <Link to="/about" className="text-2xl font-bold text-blue-400 ml-2">ABDULLAH</Link>
       </div>
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal px-1">
+          {nav}
+        </ul>
+      </div>
+
+      
     </div>
+    
   );
 }
 

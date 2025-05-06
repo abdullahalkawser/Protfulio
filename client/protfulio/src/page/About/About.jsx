@@ -31,7 +31,7 @@ const About = () => {
   ];
 
   return (
-    <div className="sm:px-20 px-5 py-14 text-white bg-gradient-to-b from-[#1e3a8a] to-[#312e81] min-h-screen">
+    <div className="sm:px-20 px-5 py-14 text-white bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl min-h-screen">
       {/* About Section */}
       <motion.div
         className="mb-14 text-center max-w-4xl mx-auto"

@@ -25,7 +25,7 @@ const educationData = [
 
 const Resume = () => {
   return (
-    <div className="px-6 sm:px-20 py-14 bg-gradient-to-b from-[#1f2937] to-[#111827] text-white min-h-screen">
+    <div className="px-6 sm:px-20 py-14  text-white min-h-screen ">
       <motion.h2
         className="text-4xl font-bold mb-10 flex items-center gap-3 text-yellow-400"
         initial={{ opacity: 0, y: -20 }}
@@ -52,7 +52,7 @@ const Resume = () => {
             </div>
 
             {/* Content */}
-            <div className="bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-md hover:shadow-yellow-500/40 transition-all duration-300">
+            <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl p-6 rounded-xl shadow-md hover:shadow-yellow-500/40 transition-all duration-300">
               <h3 className="text-2xl font-semibold text-yellow-300">{item.school}</h3>
               <span className="block mt-1 text-sm text-gray-300">{item.period}</span>
               <p className="mt-3 text-gray-200">{item.description}</p>

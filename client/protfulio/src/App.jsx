@@ -12,12 +12,17 @@ function App() {
         <div className="w-full md:w-1/3 lg:max-w-sm bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl p-6 h-[884px] overflow-y-auto">
           <Hero />
         </div>
+      
 
         {/* Main Content */}
         <div className="flex-1 bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl p-6 overflow-y-auto max-h-[884px]">
           <Home />
+
           <div className="mt-4">
+
             <Outlet />
+
+       
           </div>
         </div>
       </div>

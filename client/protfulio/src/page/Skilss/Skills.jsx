@@ -1,76 +1,74 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
 
 const projects = [
   {
-    id: 1,
-    title: 'E-Commerce Website',
-    location: 'React, Tailwind, Firebase',
-    description: 'A fully functional e-commerce app with cart, authentication, and payment integration.',
-    image: 'https://images.unsplash.com/photo-1593642532400-2682810df593'
+    title: "NFT Website",
+    image: "https://market-resized.envatousercontent.com/previews/files/289987813/01_preview.jpg?w=590&h=300&cf_fit=crop&crop=top&format=auto&q=85&s=d319c8eb9a10e036b08844090b82d1f481cf204d1818b791cb1def4ef2bfe709",
+    tools: ["HTML", "CSS", "Tailwind ", "JavaScript",'React'],
   },
   {
-    id: 2,
-    title: 'Portfolio Website',
-    location: 'Next.js, Framer Motion',
-    description: 'Personal portfolio with dynamic sections, animations, and SEO optimization.',
-    image: 'https://images.unsplash.com/photo-1593642532400-2682810df593'
+    title: "SolidWorks",
+    image: "https://mdevelopers.com/storage/0_success-projects-ujj_d3a50aee.webp",
+    tools: ["UI-UX", "Prototype"],
   },
   {
-    id: 3,
-    title: 'Food Delivery App',
-    location: 'Flutter, Firebase',
-    description: 'Cross-platform app for food ordering and real-time order tracking.',
-    image: 'https://images.unsplash.com/photo-1574158622687-2ccfa32d3202'
+    title: "Restaurant",
+    image: "https://mir-s3-cdn-cf.behance.net/projects/404/8d566b188314017.Y3JvcCwyNjE4LDIwNDgsMTI5LDA.png",
+    tools: ["HTML", "CSS", "Bootstrap", "JavaScript"],
   },
   {
-    id: 4,
-    title: 'Chat Application',
-    location: 'Socket.io, Node.js, React',
-    description: 'Real-time group chat with emojis, typing indicators and secure messaging.',
-    image: 'https://images.unsplash.com/photo-1574158622687-2ccfa32d3202'
+    title: "Mobile App",
+    image: "https://cdn.uistore.design/assets/images/marvie-ios-ui-kit-for-sketch-and-figma-thumb.webp",
+    tools: ["Flutter", "Figma", "UI/UX"],
+  },
+  {
+    title: "AI Chatbot",
+    image: "https://www.slidescarnival.com/wp-content/uploads/Futuristic-Ethics-of-Artificial-Intelligence-1.jpg",
+    tools: ["Python", "TensorFlow", "NLP"],
+  },
+  {
+    title: "Machine Learning Model",
+    image: "https://www.slideteam.net/media/catalog/product/cache/560x315/g/u/guide_for_leveraging_ai_capabilities_and_machine_learning_to_transform_industries_ppt_slide_slide01.jpg",
+    tools: ["Python", "Scikit-learn", "Jupyter"],
   }
 ];
 
-const Portfolio = () => {
+const PortfolioSection = () => {
   return (
-    <div className="bg-gradient-to-b from-[#1f1f1f] to-[#121212] min-h-screen py-14 px-6 sm:px-20 text-white">
-      <motion.h2
-        className="text-4xl font-bold text-center mb-10 text-yellow-400"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        My Projects
-      </motion.h2>
+    <section className="bg-gradient-to-br from-[#1f2937] to-[#111827] text-white py-12 px-6">
+      <div className="max-w-6xl mx-auto">
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-8">
-        {projects.map((project, index) => (
-          <motion.div
-            key={project.id}
-            className="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
-          >
-            <div className="relative w-full h-64 sm:h-72 lg:h-80">
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className="bg-[#1e1e2f] rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300"
+            >
               <img
-                src={project.image}
-                alt={project.title}
-                className="w-96 h-50 object-cover rounded-t-xl"
+            src={project.image}
+            alt={project.title}
+            className="w-full object-cover max-h-60"
               />
+              <div className="p-4">
+                <h4 className="text-xl font-semibold mb-3">{project.title}</h4>
+                <div className="flex flex-wrap gap-2">
+                  {project.tools.map((tool, i) => (
+                    <span
+                      key={i}
+                      className="text-sm bg-gradient-to-r from-pink-500 to-yellow-400 text-black font-semibold px-3 py-1 rounded-full"
+                    >
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
-            <div className="p-6">
-              <h3 className="text-xl font-semibold text-yellow-300">{project.title}</h3>
-              <p className="text-sm text-gray-400 mt-1">{project.location}</p>
-              <p className="mt-3 text-gray-200">{project.description}</p>
-            </div>
-          </motion.div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default Portfolio;
+export default PortfolioSection;
