@@ -13,6 +13,7 @@
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.5.0",
     "flowbite-react": "^0.9.0",
+    "framer-motion": "^12.10.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
     "primereact": "^10.6.6",
