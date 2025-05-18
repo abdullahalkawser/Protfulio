@@ -15,8 +15,8 @@ const Hero = () => {
           alt="Profile"
           className="w-36 h-36 rounded-full object-cover border-4 border-white shadow-lg"
         />
-        <h1 className="text-xl font-extrabold tracking-wide">ABDULLAH AL KAWSER</h1>
-        <h2 className="text-sm font-semibold text-indigo-200">Software Engineer</h2>
+        <h1 className="text-xl font-extrabold tracking-wide">Abdullah Al Kawser</h1>
+        <h2 className="text-sm font-semibold text-indigo-200">Software Engineer # Full stack Engineer</h2>
         <div className="w-20 h-1 bg-indigo-400 rounded-full mt-1"></div>
       </div>
 
