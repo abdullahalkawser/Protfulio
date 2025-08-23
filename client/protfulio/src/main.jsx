@@ -13,13 +13,14 @@ import Resume from './page/idea/Idea';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />, 
-
+    element: <App />,
     children: [
-
-    
       {
-        path: 'about',
+        index: true,         // Default route for "/"
+        element: <About />   // This will render /home content
+      },
+      {
+        path: 'home',
         element: <About />
       },
       {
@@ -30,7 +31,6 @@ const router = createBrowserRouter([
         path: 'Portfolio',
         element: <Portfolio />
       },
-
       {
         path: 'Blog',
         element: <Blog />
@@ -42,7 +42,6 @@ const router = createBrowserRouter([
     ]
   }
 ]);
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router} />
