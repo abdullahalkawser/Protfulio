@@ -1,202 +1,211 @@
 import React from "react";
-import { MdOutlineCastForEducation } from "react-icons/md";
-import { FaBriefcase, FaAward, FaCode } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { 
+  FaBrain, FaMicrochip, FaRobot, FaCode, FaAward, 
+  FaDatabase, FaNetworkWired, FaServer, FaCogs, FaProjectDiagram 
+} from "react-icons/fa";
+import { 
+  SiPython, SiTensorflow, SiPytorch, SiKeras, SiNumpy, SiPandas, SiJupyter 
+} from "react-icons/si";
 
-// Education Data
+// 1. Data Sections
 const educationData = [
   {
-    school: "University School Of The Arts",
-    degree: "Bachelor of Arts in Visual Design",
-    location: "Los Angeles, CA",
-    period: "2007 — 2008",
-    description:
-      "Studied visual design and applied arts with a focus on modern techniques and creative storytelling.",
-    icon: <MdOutlineCastForEducation className="text-2xl text-yellow-400" />,
-  },
-  {
-    school: "New York Academy Of Art",
-    degree: "Diploma in Digital Illustration",
-    location: "New York, NY",
-    period: "2006 — 2007",
-    description:
-      "Specialized in digital illustration and creative communication, combining aesthetics with functionality.",
-    icon: <MdOutlineCastForEducation className="text-2xl text-yellow-400" />,
-  },
-  {
-    school: "High School Of Art And Design",
-    degree: "High School Diploma",
-    location: "New York, NY",
-    period: "2002 — 2004",
-    description:
-      "Built foundational knowledge in graphic design, fine art, and portfolio development.",
-    icon: <MdOutlineCastForEducation className="text-2xl text-yellow-400" />,
-  },
+    school: "Bangladesh University of Business and Technology (BUBT)",
+    degree: "B.Sc. in CSE (Major in AI & Robotics)",
+    location: "Dhaka, BD",
+    period: "2022 — Present",
+    desc: "Researching on Neural Networks and Machine Learning Optimization.",
+    icon: <FaMicrochip className="text-cyan-400" />
+  }
 ];
 
-// Experience Data
-const experienceData = [
+const projectsData = [
   {
-    role: "UI/UX Designer",
-    company: "Creative Studio",
-    period: "2012 — 2015",
-    description:
-      "Worked on branding, web design, and product UI/UX for startups and businesses.",
-    icon: <FaBriefcase className="text-xl text-blue-400" />,
+    title: "Neuro-Vision Bot",
+    tech: "Python, PyTorch",
+    desc: "Real-time object detection and pathfinding using CNN architecture.",
+    status: "98% Accuracy",
+    icon: <FaRobot />
   },
   {
-    role: "Senior Visual Designer",
-    company: "DesignPro Agency",
-    period: "2015 — 2020",
-    description:
-      "Led a design team, managed client projects, and improved design workflows.",
-    icon: <FaBriefcase className="text-xl text-blue-400" />,
-  },
+    title: "Eco-Predict AI",
+    tech: "TensorFlow, Pandas",
+    desc: "Predicting environmental changes using Time-Series Analysis.",
+    status: "Deploying",
+    icon: <FaProjectDiagram />
+  }
 ];
 
-// Skills Data
 const skills = [
-  "React.js",
-  "Tailwind CSS",
-  "JavaScript",
-  "Figma",
-  "Photoshop",
-  "Illustrator",
-  "Framer Motion",
+  { name: "Deep Learning", level: "85%", icon: <FaBrain className="text-pink-500" /> },
+  { name: "ML Algorithms", level: "90%", icon: <FaNetworkWired className="text-blue-400" /> },
+  { name: "Data Analysis", level: "80%", icon: <SiPandas className="text-yellow-500" /> },
+  { name: "Backend Eng.", level: "75%", icon: <FaServer className="text-emerald-400" /> }
 ];
 
-// Certifications / Achievements
-const achievements = [
-  {
-    title: "Best Designer Award",
-    issuer: "NY Design Conference",
-    year: "2018",
-    icon: <FaAward className="text-xl text-green-400" />,
-  },
-  {
-    title: "Certified UX Professional",
-    issuer: "Interaction Design Foundation",
-    year: "2019",
-    icon: <FaAward className="text-xl text-green-400" />,
-  },
-];
-
-const SectionTitle = ({ icon, title }) => (
-  <motion.h2
-    className="text-3xl sm:text-4xl font-bold mb-8 flex items-center gap-3 text-yellow-400 glow-text"
-    initial={{ opacity: 0, y: -20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6 }}
-  >
-    {icon}
-    {title}
-  </motion.h2>
-);
-
+// 2. Main Component
 const Resume = () => {
   return (
-    <div className="px-6 sm:px-12 lg:px-20 py-12 text-white min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
-      {/* Education */}
-      <SectionTitle icon={<MdOutlineCastForEducation />} title="Education" />
-      <div className="relative border-l-4 border-yellow-400 pl-8 sm:pl-12 mb-16">
-        {educationData.map((item, index) => (
-          <motion.div
-            key={index}
-            className="mb-10 relative"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-          >
-            <div className="absolute -left-8 top-3 w-10 h-10 rounded-full bg-yellow-400 shadow-lg shadow-yellow-500 flex items-center justify-center">
-              {item.icon}
-            </div>
-
-            <div className="bg-gray-800/60 backdrop-blur-md rounded-2xl p-5 hover:shadow-xl transition-all duration-500">
-              <h3 className="text-xl font-bold text-yellow-300">{item.school}</h3>
-              <p className="text-sm text-gray-300 italic">
-                {item.degree} | {item.location}
-              </p>
-              <span className="block mt-1 text-xs text-gray-400">{item.period}</span>
-              <p className="mt-2 text-gray-200 text-sm">{item.description}</p>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Experience */}
-      <SectionTitle icon={<FaBriefcase />} title="Experience" />
-      <div className="grid md:grid-cols-2 gap-6 mb-16">
-        {experienceData.map((item, i) => (
+    <div className="min-h-screen  text-white px-6 md:px-20 py-16 relative overflow-hidden">
+      
+      {/* Animated Background Particles */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
-            className="bg-gray-800/60 backdrop-blur-md rounded-2xl p-5 hover:scale-105 hover:shadow-xl transition-all duration-500"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: i * 0.2 }}
-          >
-            <div className="flex items-center gap-3 mb-2 text-blue-300">
-              {item.icon}
-              <h3 className="font-semibold text-lg">{item.role}</h3>
+            animate={{
+              y: [0, -100, 0],
+              opacity: [0, 0.5, 0],
+            }}
+            transition={{ duration: Math.random() * 10 + 5, repeat: Infinity }}
+            className="absolute bg-cyan-500/10 rounded-full"
+            style={{
+              width: Math.random() * 10,
+              height: Math.random() * 10,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Header Section */}
+      <motion.div 
+        initial={{ opacity: 0, y: -50 }} 
+        animate={{ opacity: 1, y: 0 }}
+        className="text-center mb-24 relative z-10"
+      >
+        <h1 className="text-6xl md:text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 mb-4 uppercase tracking-tighter">
+          Engineering Resume
+        </h1>
+        <div className="flex justify-center gap-4 text-xs font-mono text-cyan-500 tracking-[0.5em]">
+          <span>DATA SCIENCE</span> • <span>AI ENGINEERING</span> • <span>FULL STACK</span>
+        </div>
+      </motion.div>
+
+      <div className="grid lg:grid-cols-12 gap-12 relative z-10">
+        
+        {/* Left Column (8 units) */}
+        <div className="lg:col-span-8 space-y-20">
+          
+          {/* Education Section */}
+          <section>
+            <h2 className="text-3xl font-bold flex items-center gap-4 mb-10">
+              <span className="p-3 bg-cyan-500/20 rounded-xl border border-cyan-500/30 shadow-neon-blue"><FaMicrochip /></span>
+              Educational Core
+            </h2>
+            {educationData.map((edu, idx) => (
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                className="p-8 bg-gradient-to-r from-white/[0.03] to-transparent border border-white/10 rounded-3xl relative overflow-hidden group shadow-2xl"
+              >
+                <div className="absolute top-0 right-0 p-10 text-8xl text-white/[0.02] group-hover:text-cyan-500/10 transition-all"></div>
+                <h3 className="text-2xl font-black text-white">{edu.school}</h3>
+                <p className="text-cyan-400 font-mono mb-4">{edu.degree}</p>
+                <p className="text-gray-400 max-w-xl italic">"{edu.desc}"</p>
+              </motion.div>
+            ))}
+          </section>
+
+          {/* AI/ML Projects Section */}
+          <section>
+            <h2 className="text-3xl font-bold flex items-center gap-4 mb-10 uppercase">
+              <span className="p-3 bg-purple-500/20 rounded-xl border border-purple-500/30 shadow-neon-purple"><FaProjectDiagram /></span>
+              ML Repositories
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {projectsData.map((p, i) => (
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  whileHover={{ y: -10 }}
+                  className="p-6 bg-[#0a0a0a] border border-white/10 rounded-[2rem] hover:border-purple-500/50 transition-all"
+                >
+                  <div className="text-3xl text-purple-500 mb-4">{p.icon}</div>
+                  <h4 className="text-xl font-bold text-white mb-2">{p.title}</h4>
+                  <p className="text-xs text-cyan-400 font-mono mb-4 uppercase">{p.tech}</p>
+                  <p className="text-gray-500 text-sm mb-6">{p.desc}</p>
+                  <div className="flex justify-between items-center text-[10px] font-black tracking-widest text-gray-400 border-t border-white/5 pt-4">
+                    <span>ACCURACY: {p.status}</span>
+                    <span className="cursor-pointer hover:text-white uppercase">Source Code →</span>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-            <p className="text-gray-300 text-sm">{item.company}</p>
-            <p className="text-xs text-gray-400">{item.period}</p>
-            <p className="mt-2 text-gray-200 text-sm">{item.description}</p>
-          </motion.div>
-        ))}
-      </div>
+          </section>
+        </div>
 
-      {/* Skills */}
-      <SectionTitle icon={<FaCode />} title="Skills" />
-      <div className="flex flex-wrap gap-3 mb-16">
-        {skills.map((skill, i) => (
-          <motion.span
-            key={i}
-            className="px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full text-sm font-medium shadow-md hover:scale-105 transition-transform duration-300"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.1 }}
-          >
-            {skill}
-          </motion.span>
-        ))}
-      </div>
-
-      {/* Achievements */}
-      <SectionTitle icon={<FaAward />} title="Achievements & Certifications" />
-      <div className="grid md:grid-cols-2 gap-6">
-        {achievements.map((a, i) => (
-          <motion.div
-            key={i}
-            className="bg-gray-800/60 backdrop-blur-md rounded-2xl p-5 hover:scale-105 hover:shadow-xl transition-all duration-500"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: i * 0.2 }}
-          >
-            <div className="flex items-center gap-3 mb-2 text-green-300">
-              {a.icon}
-              <h3 className="font-semibold text-lg">{a.title}</h3>
+        {/* Right Column (4 units) */}
+        <div className="lg:col-span-4 space-y-12">
+          
+          {/* Dashboard Style Skills */}
+          <div className="p-8 bg-white/[0.02] border border-white/10 rounded-[2.5rem] backdrop-blur-md">
+            <h3 className="text-xl font-black mb-8 uppercase tracking-widest text-center">Neural Skills</h3>
+            <div className="space-y-8">
+              {skills.map((s, i) => (
+                <div key={i} className="space-y-3">
+                  <div className="flex justify-between items-center px-2">
+                    <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-tighter">
+                      {s.icon} {s.name}
+                    </span>
+                    <span className="text-[10px] font-mono text-cyan-500">{s.level}</span>
+                  </div>
+                  <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      whileInView={{ width: s.level }}
+                      transition={{ duration: 1.5, delay: i * 0.1 }}
+                      className="h-full bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full"
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
-            <p className="text-gray-300 text-sm">{a.issuer}</p>
-            <p className="text-xs text-gray-400">{a.year}</p>
+          </div>
+
+          {/* AI Tools Grid */}
+          <div className="grid grid-cols-2 gap-4">
+             {[SiPython, SiTensorflow, SiPytorch, SiKeras, SiNumpy, SiJupyter].map((Icon, i) => (
+               <motion.div 
+                 whileHover={{ scale: 1.1, rotate: 5 }}
+                 className="p-6 bg-white/[0.02] border border-white/5 rounded-2xl flex items-center justify-center text-3xl hover:bg-white/[0.05] transition-all"
+               >
+                 <Icon className="text-gray-500 hover:text-cyan-400 transition-colors" />
+               </motion.div>
+             ))}
+          </div>
+
+          {/* Achievement Box */}
+          <motion.div 
+            whileHover={{ y: -5 }}
+            className="p-8 bg-gradient-to-br from-cyan-500/10 to-transparent border border-cyan-500/20 rounded-[2rem] text-center"
+          >
+            <FaAward className="text-4xl text-yellow-400 mx-auto mb-4" />
+            <h4 className="font-bold text-white mb-2">BUBT CSE CARNIVAL</h4>
+            <p className="text-xs text-gray-500 italic">"Winner - Algorithm Challenge 2024"</p>
           </motion.div>
-        ))}
+
+        </div>
       </div>
 
-      {/* Glow Animation */}
+      {/* Global CSS for Glows */}
       <style>{`
-        .glow-text {
-          text-shadow: 0 0 5px #FFD700, 0 0 15px #FFD700, 0 0 30px #FFD700;
-          animation: glow 2s ease-in-out infinite alternate;
-        }
-        @keyframes glow {
-          from { text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700; }
-          to { text-shadow: 0 0 20px #FFD700, 0 0 40px #FFD700; }
-        }
+        .shadow-neon-blue { box-shadow: 0 0 20px rgba(6, 182, 212, 0.2); }
+        .shadow-neon-purple { box-shadow: 0 0 20px rgba(168, 85, 247, 0.2); }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #1e1e1e; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #22d3ee; }
+
+        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;700&display=swap');
+        
+        body { font-family: 'Space Grotesk', sans-serif; }
+        h1, h2, h3 { font-family: 'Syncopate', sans-serif; }
       `}</style>
+
     </div>
   );
 };

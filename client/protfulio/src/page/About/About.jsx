@@ -1,144 +1,170 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaFacebookF, FaGithub, FaLinkedinIn, FaTwitter, FaEnvelope } from "react-icons/fa";
+import { TypeAnimation } from "react-type-animation";
+import { FaGithub, FaLinkedinIn, FaTwitter, FaBrain, FaCode, FaServer, FaTerminal, FaDatabase, FaRocket } from "react-icons/fa";
 
-const socials = [
-  { icon: <FaEnvelope />, link: "mailto:your.email@example.com", color: "bg-red-500" },
-  { icon: <FaFacebookF />, link: "https://facebook.com", color: "bg-blue-600" },
-  { icon: <FaGithub />, link: "https://github.com", color: "bg-gray-800" },
-  { icon: <FaLinkedinIn />, link: "https://linkedin.com", color: "bg-blue-700" },
-  { icon: <FaTwitter />, link: "https://twitter.com", color: "bg-sky-400" },
-];
-
-const stats = [
-  { number: "+700h", label: "Work tracked on Upwork only" },
-  { number: "+30", label: "Projects Delivered since 2021" },
-  { number: "~98%", label: "Successful Jobs Completion Rate" },
-  { number: "4.5", label: "Stars Average Rated Work" },
+const coreSkills = [
+  { 
+    category: "AI & Machine Learning", 
+    icon: <FaBrain className="text-cyan-400" />, 
+    tools: ["PyTorch", "TensorFlow", "YOLOv8", "LLMs"],
+    desc: "Neural network architecture and deep learning solutions."
+  },
+  { 
+    category: "Software Engineering", 
+    icon: <FaCode className="text-purple-400" />, 
+    tools: ["Python", "FastAPI", "React", "Node.js"],
+    desc: "Building scalable, high-performance web applications."
+  },
+  { 
+    category: "Data Infrastructure", 
+    icon: <FaServer className="text-emerald-400" />, 
+    tools: ["PostgreSQL", "Docker", "AWS", "MLOps"],
+    desc: "Managing data pipelines and cloud infrastructure."
+  },
+  {
+    category: "Data Science",
+    icon: <FaDatabase className="text-orange-400" />,
+    tools: ["Pandas", "ETL", "CI/CD", "Data Pipelines"],
+    desc: "Production-ready ML systems and scalable pipelines."
+  }
 ];
 
 const About = () => {
   return (
-    <div className="bg-gray-900 text-white min-h-screen flex flex-col lg:flex-row items-center justify-center p-4 relative overflow-hidden">
+    <div className="text-white min-h-screen p-4 sm:p-8 md:p-12 lg:p-16 relative overflow-x-hidden font-sans ">
+      
+      {/* --- Cosmic Background Elements --- */}
+      <div className="absolute top-0 left-1/4 w-72 h-72 md:w-96 md:h-96 bg-cyan-500/10 blur-[150px] animate-pulse pointer-events-none"></div>
+      <div className="absolute bottom-0 right-1/4 w-72 h-72 md:w-96 md:h-96 bg-purple-500/10 blur-[150px] animate-pulse pointer-events-none"></div>
 
-      {/* Floating Particles */}
-      <div className="absolute inset-0 z-0">
-        {[...Array(30)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute bg-green-500 opacity-50 rounded-full"
-            style={{
-              width: `${Math.random() * 6 + 2}px`,
-              height: `${Math.random() * 6 + 2}px`,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animation: `float ${Math.random() * 5 + 5}s infinite ease-in-out`,
-              animationDelay: `${Math.random() * 5}s`,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Left Section */}
-      <motion.div
-        className="flex-1 text-left p-6 max-w-xl relative z-10"
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
-          Hey, I am <span className="text-green-500 glow-text">Abdullah AL Kawser</span> 🙌
-        </h1>
-        <p className="text-lg mb-6">
-          Software Engineer | 🤖 Machine Learning | AI | Deep Learning | Computer Vision | Bangladesh / USA
-        </p>
-
-        <div className="space-x-4 mb-10">
-          <motion.button
-            className="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition transform hover:scale-105"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
+      <div className="max-w-7xl mx-auto z-10 relative">
+        
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-16 items-center mb-20 md:mb-32">
+          
+          {/* --- Text Content (Order 2 on Mobile) --- */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="order-2 lg:order-1 text-center lg:text-left"
           >
-            Contact Me
-          </motion.button>
-          <motion.button
-            className="bg-gray-700 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition transform hover:scale-105"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Check Portfolio
-          </motion.button>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono mb-8">
+              <FaRocket className="animate-bounce" /> Exploration Mode: Active
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl md:text-5xl font-black tracking-tighter mb-4 leading-tight">
+               Abdullah Al Kawser
+            </h1>
+            
+            <h2 className="text-xl sm:text-xl md:text-2xl font-bold mb-6 tracking-tight">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
+               Software Engineer | Machine Learning | Artificial Intelligence | AI Researcher
+              </span>
+            </h2>
+
+            <div className="text-lg md:text-2xl font-mono text-gray-400 mb-8 flex items-center justify-center lg:justify-start gap-3">
+              <FaTerminal className="text-cyan-500" />
+              <TypeAnimation
+                sequence={["AI Solutions Architect", 2000, "Full Stack Developer", 2000, "ML Research Engineer", 2000]}
+                repeat={Infinity}
+              />
+            </div>
+
+            <p className="text-gray-400 text-sm md:text-lg max-w-lg mb-10 leading-relaxed mx-auto lg:mx-0 border-l-2 border-cyan-500/30 pl-6">
+              🚀 I'm building intelligent systems that learn from data and solve real-world problems. My ML/AI journey includes:
+
+ Supervised & Unsupervised Learning
+ Deep Learning with TensorFlow & PyTorch
+ Image Processing with OpenCV
+Model Deployment using FastAPI
+real-time applications like Face Detection, NLP Bots, and more
+            </p>
+
+            <div className="flex flex-wrap justify-center lg:justify-start gap-6">
+              <motion.button 
+                whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(6,182,212,0.4)" }}
+                className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-2xl font-bold shadow-lg"
+              >
+                Hire Me
+              </motion.button>
+              <div className="flex gap-4 items-center">
+                {[<FaGithub />, <FaLinkedinIn />, <FaTwitter />].map((icon, i) => (
+                  <motion.a key={i} whileHover={{ y: -5, color: "#22d3ee" }} className="text-2xl text-gray-500 cursor-pointer">
+                    {icon}
+                  </motion.a>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* --- The Space-Image (Order 1 on Mobile) --- */}
+          <div className="order-1 lg:order-2 relative flex justify-center items-center py-10">
+            {/* Spinning Space Orbits */}
+            <div className="absolute w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[450px] md:h-[450px] border border-cyan-500/20 rounded-full animate-[spin_15s_linear_infinite]">
+              <div className="absolute top-0 left-1/2 w-3 h-3 bg-cyan-400 rounded-full blur-sm"></div>
+            </div>
+            <div className="absolute w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] border border-purple-500/10 rounded-full animate-[spin_25s_linear_infinite_reverse]">
+              <div className="absolute bottom-0 right-1/2 w-4 h-4 bg-purple-500 rounded-full blur-sm"></div>
+            </div>
+
+            {/* Image Container with 3D Pop-out */}
+            <div className="relative group">
+              {/* Glowing Background behind Image */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500 to-purple-600 blur-[60px] opacity-20 group-hover:opacity-40 transition-opacity"></div>
+              
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[400px] md:h-[400px]">
+                {/* Back part of the ring (behind the head) */}
+                <div className="absolute inset-0 border-[12px] md:border-[16px] border-cyan-500/30 rounded-full animate-[spin_8s_linear_infinite] z-0"></div>
+                
+                {/* The Image - Slightly shifted up and out */}
+                <motion.div 
+                  initial={{ y: 20 }}
+                  animate={{ y: [0, -15, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute inset-0 z-10 flex items-center justify-center translate-y-[-20px] md:translate-y-[-40px]"
+                >
+                  <img 
+                    src="https://scontent.fdac174-1.fna.fbcdn.net/v/t39.30808-6/618518262_1451336166412750_4218432099950331577_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeGqQdN8ZnIFkFMfsHnZDVC_4X-B01FzHI3hf4HTUXMcjeeS2C9fIr7dXJ9edosyknDn1HaJ8TXC0guEHTNScbse&_nc_ohc=AjMUh0L2UpwQ7kNvwFCruaE&_nc_oc=AdldiMjskaBGTkLy7SDvI9UILc-CkHmIwIEZXAWC9fE77CmhE1uzcwhfvTVQfcf5qeY&_nc_zt=23&_nc_ht=scontent.fdac174-1.fna&_nc_gid=4uFLpo0yEPXRhX4kjajyPQ&_nc_ss=8&oh=00_AfsSirTBU5WMItU9Eotq5j5tFLIPQPA5bmFGKUK3IOOv8w&oe=69A93390" 
+                    alt="Abdullah" 
+                    className="w-full h-full object-cover rounded-full border-4 border-white/10 shadow-2xl grayscale-[20%] hover:grayscale-0 transition-all duration-500"
+                  />
+                </motion.div>
+
+                {/* Front part of the ring (looks like it's in front of chest) */}
+                <div className="absolute inset-0 border-t-[12px] md:border-t-[16px] border-l-[12px] md:border-l-[16px] border-cyan-400 rounded-full animate-[spin_8s_linear_infinite] z-20 opacity-80 pointer-events-none"></div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Stats with 3D hover */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center mb-10">
-          {stats.map((stat, idx) => (
-            <motion.div
-              key={idx}
-              className="bg-gray-800 p-4 rounded-xl shadow-lg cursor-pointer"
-              whileHover={{ scale: 1.1, rotateX: 5, rotateY: 10 }}
-              transition={{ type: "spring", stiffness: 150 }}
+        {/* --- Expertise Section --- */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          {coreSkills.map((skill, i) => (
+            <motion.div 
+              key={i}
+              whileHover={{ y: -15, scale: 1.02 }}
+              className="p-8 md:p-10 rounded-[2.5rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl group hover:border-cyan-500/40 transition-all duration-500 shadow-2xl relative overflow-hidden"
             >
-              <p className="text-3xl md:text-4xl font-bold">{stat.number}</p>
-              <p className="text-sm">{stat.label}</p>
+              <div className="absolute -right-4 -top-4 w-24 h-24 bg-cyan-500/5 blur-3xl rounded-full"></div>
+              <div className="text-5xl mb-8 group-hover:animate-bounce transition-all">
+                {skill.icon}
+              </div>
+              <h3 className="text-2xl font-bold mb-4">{skill.category}</h3>
+              <p className="text-gray-400 text-sm mb-8 leading-relaxed italic">{skill.desc}</p>
+              
+              <div className="flex flex-wrap gap-2">
+                {skill.tools.map((tool, j) => (
+                  <span key={j} className="text-[10px] uppercase tracking-widest px-3 py-1 rounded-full bg-cyan-500/5 border border-white/10 group-hover:border-cyan-500/30 text-gray-400 group-hover:text-cyan-300 transition-colors">
+                    {tool}
+                  </span>
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Social Links with 3D hover */}
-        <div className="flex flex-wrap gap-4">
-          {socials.map((social, idx) => (
-            <motion.a
-              key={idx}
-              href={social.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${social.color} w-12 h-12 flex items-center justify-center rounded-lg shadow-lg cursor-pointer`}
-              whileHover={{ scale: 1.2, rotateX: 5, rotateY: 10 }}
-              transition={{ type: "spring", stiffness: 150 }}
-            >
-              {social.icon}
-            </motion.a>
-          ))}
-        </div>
-      </motion.div>
-
-      {/* Right Section (Profile Image) */}
-      <motion.div
-        className="flex-1 flex justify-center mt-10 lg:mt-0"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.3 }}
-      >
-        <motion.div
-          className="w-80 md:w-96 h-80 md:h-96 bg-gray-300 rounded-3xl overflow-hidden shadow-2xl"
-          whileHover={{ rotateY: 15, rotateX: 5, scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 100 }}
-        >
-          <img
-            src="https://scontent.fjsr6-1.fna.fbcdn.net/v/t39.30808-1/489085217_1225632368983132_9073890756416247574_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=101&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeEp2EjF5dKG6maYNVO3zPq8_QmJvGbojLn9CYm8ZuiMuVPdNWJoVaZmN0H-BcjyM-f2wgIxKfnYtQc00DxgLKhn&_nc_ohc=V3LHMz-aTfMQ7kNvwGyzeso&_nc_oc=Adlc02cs4HvISu_m4k1lWXAVwaw-rGu87m6O0O5no58-CsajxpovIYwMQA497dPV-uc&_nc_zt=24&_nc_ht=scontent.fjsr6-1.fna&_nc_gid=TejcXi_-CgAJt9btyelM-g&oh=00_AfWN5uCBh8LZYOLcVL7wRQK-PsnvLeMsTWOYta67kDoYPg&oe=68AEE8E3"
-            alt="Abdullah AL Kawser"
-            className="w-full h-full object-cover"
-          />
-        </motion.div>
-      </motion.div>
-
-      {/* Floating animation keyframes */}
-      <style>{`
-        @keyframes float {
-          0% { transform: translateY(0) }
-          50% { transform: translateY(-20px) }
-          100% { transform: translateY(0) }
-        }
-        .glow-text {
-          text-shadow: 0 0 5px #00ff80, 0 0 10px #00ff80, 0 0 20px #00ff80;
-          animation: glow 2s ease-in-out infinite alternate;
-        }
-        @keyframes glow {
-          from { text-shadow: 0 0 5px #00ff80, 0 0 10px #00ff80, 0 0 20px #00ff80; }
-          to { text-shadow: 0 0 20px #00ff80, 0 0 40px #00ff80, 0 0 60px #00ff80; }
-        }
-      `}</style>
+      </div>
     </div>
   );
 };
