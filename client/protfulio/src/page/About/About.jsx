@@ -66,7 +66,7 @@ const About = () => {
             <div className="text-lg md:text-2xl font-mono text-gray-400 mb-8 flex items-center justify-center lg:justify-start gap-3">
               <FaTerminal className="text-cyan-500" />
               <TypeAnimation
-                sequence={["AI Solutions Architect", 2000, "Full Stack Developer", 2000, "ML Research Engineer", 2000]}
+                sequence={["AI Solutions Architect", 2000, "Full Stack Software Engineer", 2000, "ML Research Engineer", 2000, "Artificial Intelligence ", 2000]}
                 repeat={Infinity}
               />
             </div>
@@ -125,7 +125,7 @@ real-time applications like Face Detection, NLP Bots, and more
                   className="absolute inset-0 z-10 flex items-center justify-center translate-y-[-20px] md:translate-y-[-40px]"
                 >
                   <img 
-                    src="https://scontent.fdac174-1.fna.fbcdn.net/v/t39.30808-6/618518262_1451336166412750_4218432099950331577_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeGqQdN8ZnIFkFMfsHnZDVC_4X-B01FzHI3hf4HTUXMcjeeS2C9fIr7dXJ9edosyknDn1HaJ8TXC0guEHTNScbse&_nc_ohc=AjMUh0L2UpwQ7kNvwFCruaE&_nc_oc=AdldiMjskaBGTkLy7SDvI9UILc-CkHmIwIEZXAWC9fE77CmhE1uzcwhfvTVQfcf5qeY&_nc_zt=23&_nc_ht=scontent.fdac174-1.fna&_nc_gid=4uFLpo0yEPXRhX4kjajyPQ&_nc_ss=8&oh=00_AfsSirTBU5WMItU9Eotq5j5tFLIPQPA5bmFGKUK3IOOv8w&oe=69A93390" 
+                    src="https://scontent.fdac174-1.fna.fbcdn.net/v/t39.30808-6/484543805_1211124537100582_5765697895517237165_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=53a332&_nc_eui2=AeH5mcVS3JJ_gOmvmCDaYkVzWWKTXGg3aT1ZYpNcaDdpPd1wUcJvH4xOY8yesehUiM2P5huqcvc0RML1ZKhdceNO&_nc_ohc=7nSfoH42hE0Q7kNvwGnYmpd&_nc_oc=Adl4FLS3VJFOXhM_aY2hKRScNy5T7MeypP2lF97h-l7dndeLoovWOMLacx5QazAZFcQ&_nc_zt=23&_nc_ht=scontent.fdac174-1.fna&_nc_gid=1lcvtk9SnlR0zaB--gySfQ&_nc_ss=8&oh=00_AfuG27hdYHEKCR4tcXB4QP1OMzdCTP3A7-K26TStnRmAmA&oe=69AA494D" 
                     alt="Abdullah" 
                     className="w-full h-full object-cover rounded-full border-4 border-white/10 shadow-2xl grayscale-[20%] hover:grayscale-0 transition-all duration-500"
                   />
