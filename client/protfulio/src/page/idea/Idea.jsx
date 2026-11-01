@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { 
-  FaBrain, FaMicrochip, FaRobot, FaAward, 
-  FaNetworkWired, FaServer, FaProjectDiagram,
-  FaBriefcase, FaGraduationCap, FaExternalLinkAlt, FaTerminal
+  FaBrain, FaRobot, FaAward, FaNetworkWired, FaServer, 
+  FaProjectDiagram, FaBriefcase, FaGraduationCap, FaExternalLinkAlt, 
+  FaTerminal, FaCodeBranch, FaCloud, FaShieldAlt, FaDownload, FaCheckCircle
 } from "react-icons/fa";
 import { 
-  SiPython, SiTensorflow, SiPytorch, SiKeras, 
-  SiNumpy, SiPandas, SiJupyter, SiScikitlearn, SiDocker 
+  SiPython, SiPytorch, SiTensorflow, SiKeras, 
+  SiNumpy, SiPandas, SiJupyter, SiScikitlearn, SiDocker, 
+  SiGit, SiFastapi, SiReact, SiPostgresql 
 } from "react-icons/si";
 
 // --- Data Definitions ---
@@ -57,45 +58,78 @@ const projectsData = [
   }
 ];
 
+const engineeringCore = [
+  { title: "System Architecture", desc: "Designing microservices & high-throughput RESTful pipelines.", icon: <FaServer className="text-cyan-400" /> },
+  { title: "Version Control & CI/CD", desc: "Automated testing, GitHub Actions, and Git workflow mastery.", icon: <FaCodeBranch className="text-purple-400" /> },
+  { title: "Cloud & Containerization", desc: "Dockerized deployments and cloud model serving.", icon: <FaCloud className="text-blue-400" /> },
+  { title: "Clean Code & Testing", desc: "Writing maintainable, modular code with robust debugging.", icon: <FaShieldAlt className="text-emerald-400" /> },
+];
+
 const neuralSkills = [
   { name: "Deep Learning & Neural Nets", level: "88%", icon: <FaBrain className="text-pink-400" /> },
   { name: "Machine Learning Algorithms", level: "92%", icon: <FaNetworkWired className="text-cyan-400" /> },
   { name: "Data Science & Analysis", level: "85%", icon: <SiPandas className="text-yellow-400" /> },
-  { name: "Backend & Model Deployment", level: "78%", icon: <FaServer className="text-emerald-400" /> }
+  { name: "Backend & API Engineering", level: "80%", icon: <SiFastapi className="text-teal-400" /> }
 ];
 
 const techIcons = [
   { Icon: SiPython, name: "Python", color: "hover:text-yellow-400" },
-  { Icon: SiPyTorch, name: "PyTorch", color: "hover:text-orange-500" },
+  { Icon: SiPytorch, name: "PyTorch", color: "hover:text-orange-500" },
   { Icon: SiTensorflow, name: "TensorFlow", color: "hover:text-orange-400" },
-  { Icon: SiScikitlearn, name: "Scikit-Learn", color: "hover:text-blue-400" },
-  { Icon: SiPandas, name: "Pandas", color: "hover:text-purple-400" },
-  { Icon: SiNumpy, name: "NumPy", color: "hover:text-sky-400" },
-  { Icon: SiKeras, name: "Keras", color: "hover:text-red-500" },
+  { Icon: SiFastapi, name: "FastAPI", color: "hover:text-teal-400" },
+  { Icon: SiReact, name: "React", color: "hover:text-cyan-400" },
   { Icon: SiDocker, name: "Docker", color: "hover:text-blue-500" },
+  { Icon: SiPostgresql, name: "PostgreSQL", color: "hover:text-sky-400" },
+  { Icon: SiGit, name: "Git", color: "hover:text-red-400" },
   { Icon: SiJupyter, name: "Jupyter", color: "hover:text-orange-500" },
 ];
 
 const Resume = () => {
+  const [downloaded, setDownloaded] = useState(false);
+
+  const handleDownload = () => {
+    setDownloaded(true);
+    setTimeout(() => setDownloaded(false), 3000);
+    // Add real resume PDF link handling here if available
+  };
+
   return (
     <div className="min-h-screen text-slate-100 py-6 relative overflow-hidden font-sans">
       
-      {/* Header Section */}
+      {/* Header Section with Quick Recruiters Action */}
       <motion.div 
         initial={{ opacity: 0, y: -20 }} 
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-center mb-16 relative z-10"
+        className="text-center mb-16 relative z-10 flex flex-col items-center"
       >
         <span className="px-3 py-1 text-xs font-mono tracking-widest uppercase text-cyan-400 bg-cyan-950/50 border border-cyan-500/20 rounded-full inline-block mb-3">
-          Curriculum Vitae
+          Curriculum Vitae & Software Profile
         </span>
         <h1 className="text-4xl md:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-sky-200 to-purple-500 uppercase tracking-tight">
           Engineering Resume
         </h1>
-        <p className="text-xs md:text-sm font-mono text-slate-400 mt-3 tracking-widest uppercase">
-          AI Engineer &bull; Machine Learning &bull; Data Science &bull; Full Stack
+        <p className="text-xs md:text-sm font-mono text-slate-400 mt-3 tracking-widest uppercase mb-6">
+          Software Engineer &bull; AI/ML Researcher &bull; Full-Stack Architect
         </p>
+
+        {/* Recruiter Quick Action Button */}
+        <motion.button
+          onClick={handleDownload}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="flex items-center gap-2.5 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-all"
+        >
+          {downloaded ? (
+            <>
+              <FaCheckCircle className="text-white text-base" /> Resume Ready / Downloaded
+            </>
+          ) : (
+            <>
+              <FaDownload className="text-white" /> Download Full CV (PDF)
+            </>
+          )}
+        </motion.button>
       </motion.div>
 
       <div className="grid lg:grid-cols-12 gap-10 relative z-10">
@@ -103,6 +137,36 @@ const Resume = () => {
         {/* Left Main Content Column (8 Units) */}
         <div className="lg:col-span-8 space-y-12">
           
+          {/* Software Engineering Competencies (New for Engineers) */}
+          <section>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="p-2.5 bg-blue-500/10 rounded-xl border border-blue-500/30 text-blue-400">
+                <FaTerminal size={18} />
+              </span>
+              <h2 className="text-2xl font-bold tracking-tight text-white uppercase">
+                Software Engineering Core
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-4">
+              {engineeringCore.map((core, idx) => (
+                <motion.div 
+                  key={idx}
+                  whileHover={{ y: -3 }}
+                  className="p-5 bg-[#070c1e]/60 border border-slate-800/80 hover:border-blue-500/30 rounded-2xl transition-all backdrop-blur-md"
+                >
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="text-xl p-2 bg-slate-900 rounded-xl border border-slate-800">
+                      {core.icon}
+                    </div>
+                    <h3 className="text-sm font-bold text-white">{core.title}</h3>
+                  </div>
+                  <p className="text-xs text-slate-400 leading-relaxed">{core.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </section>
+
           {/* Professional Experience */}
           <section>
             <div className="flex items-center gap-3 mb-6">
@@ -110,7 +174,7 @@ const Resume = () => {
                 <FaBriefcase size={18} />
               </span>
               <h2 className="text-2xl font-bold tracking-tight text-white uppercase">
-                Technical Experience
+                Professional Experience
               </h2>
             </div>
 
@@ -151,7 +215,7 @@ const Resume = () => {
                 <FaGraduationCap size={20} />
               </span>
               <h2 className="text-2xl font-bold tracking-tight text-white uppercase">
-                Educational Core
+                Educational Background
               </h2>
             </div>
 
@@ -185,7 +249,7 @@ const Resume = () => {
                 <FaProjectDiagram size={18} />
               </span>
               <h2 className="text-2xl font-bold tracking-tight text-white uppercase">
-                Featured Projects
+                Featured Repositories
               </h2>
             </div>
 
@@ -233,7 +297,7 @@ const Resume = () => {
           {/* AI/ML Neural Skills */}
           <div className="p-6 bg-[#070c1e]/60 border border-slate-800/80 rounded-2xl backdrop-blur-md">
             <h3 className="text-base font-bold uppercase tracking-wider text-white mb-6 flex items-center gap-2">
-              <FaBrain className="text-pink-400" /> Neural Skills
+              <FaBrain className="text-pink-400" /> Technical Proficiency
             </h3>
             <div className="space-y-5">
               {neuralSkills.map((s, i) => (
@@ -258,10 +322,10 @@ const Resume = () => {
             </div>
           </div>
 
-          {/* AI/ML Tech Stack Grid */}
+          {/* Software & AI Toolstack Grid */}
           <div className="p-6 bg-[#070c1e]/60 border border-slate-800/80 rounded-2xl backdrop-blur-md">
             <h3 className="text-base font-bold uppercase tracking-wider text-white mb-4 flex items-center gap-2">
-              <FaTerminal className="text-cyan-400" /> Toolstack
+              <FaTerminal className="text-cyan-400" /> Stack & Tools
             </h3>
             <div className="grid grid-cols-3 gap-3">
               {techIcons.map(({ Icon, name, color }, i) => (
