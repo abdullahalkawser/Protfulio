@@ -73,12 +73,12 @@ const About = () => {
 
             <p className="text-gray-400 text-sm md:text-lg max-w-lg mb-10 leading-relaxed mx-auto lg:mx-0 border-l-2 border-cyan-500/30 pl-6">
               🚀 I'm building intelligent systems that learn from data and solve real-world problems. My ML/AI journey includes:
+              <br />        <br />
 
  Supervised & Unsupervised Learning
- Deep Learning with TensorFlow & PyTorch
+
  Image Processing with OpenCV
 Model Deployment using FastAPI
-real-time applications like Face Detection, NLP Bots, and more
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-6">
@@ -125,7 +125,7 @@ real-time applications like Face Detection, NLP Bots, and more
                   className="absolute inset-0 z-10 flex items-center justify-center translate-y-[-20px] md:translate-y-[-40px]"
                 >
                   <img 
-                    src="https://scontent.fdac174-1.fna.fbcdn.net/v/t39.30808-6/484543805_1211124537100582_5765697895517237165_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=53a332&_nc_eui2=AeH5mcVS3JJ_gOmvmCDaYkVzWWKTXGg3aT1ZYpNcaDdpPd1wUcJvH4xOY8yesehUiM2P5huqcvc0RML1ZKhdceNO&_nc_ohc=7nSfoH42hE0Q7kNvwGnYmpd&_nc_oc=Adl4FLS3VJFOXhM_aY2hKRScNy5T7MeypP2lF97h-l7dndeLoovWOMLacx5QazAZFcQ&_nc_zt=23&_nc_ht=scontent.fdac174-1.fna&_nc_gid=1lcvtk9SnlR0zaB--gySfQ&_nc_ss=8&oh=00_AfuG27hdYHEKCR4tcXB4QP1OMzdCTP3A7-K26TStnRmAmA&oe=69AA494D" 
+                    src="https://scontent.fdac41-1.fna.fbcdn.net/v/t39.30808-6/866552773_1685327513013613_2589447610854895719_n.jpg?stp=dst-jpg_tt6&cstp=mx1536x2048&ctp=s1536x2048&_nc_cat=110&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEOXyMThKoxSDlbwRPzotg-WcyJt20rTklZzIm3bStOSUmmV88NSWbJSMbk9qpC6Et2EmrSEVM5_d9AFEX1Qe2Q&_nc_ohc=QwNb_YIg-HwQ7kNvwG6fwaX&_nc_oc=Adq6kQ_iC-TP1yAl95m3er6zVy6X2teO5gBJw9WTMOrqhqjg_9hspydqTPiNtxHjXm4&_nc_zt=23&_nc_ht=scontent.fdac41-1.fna&_nc_gid=B0nC9twEisN3SkJJ7DPLlg&_nc_ss=7b2a8&oh=00_AQRUCNsuIIt7SpFWNrvdjssUhnuhN3JrKtjJiVHMMwpQcw&oe=6AED2FC3" 
                     alt="Abdullah" 
                     className="w-full h-full object-cover rounded-full border-4 border-white/10 shadow-2xl grayscale-[20%] hover:grayscale-0 transition-all duration-500"
                   />
