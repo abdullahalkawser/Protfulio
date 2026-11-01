@@ -1,162 +1,256 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { 
-  FaBrain, FaMicrochip, FaRobot, FaCode, FaAward, 
-  FaDatabase, FaNetworkWired, FaServer, FaCogs, FaProjectDiagram 
+  FaBrain, FaMicrochip, FaRobot, FaAward, 
+  FaNetworkWired, FaServer, FaProjectDiagram,
+  FaBriefcase, FaGraduationCap, FaExternalLinkAlt, FaTerminal
 } from "react-icons/fa";
 import { 
-  SiPython, SiTensorflow, SiPytorch, SiKeras, SiNumpy, SiPandas, SiJupyter 
+  SiPython, SiTensorflow, SiPytorch, SiKeras, 
+  SiNumpy, SiPandas, SiJupyter, SiScikitlearn, SiDocker 
 } from "react-icons/si";
 
-// 1. Data Sections
+// --- Data Definitions ---
+const experienceData = [
+  {
+    role: "AI & ML Research Intern",
+    company: "Neural Lab & Research Center",
+    period: "2024 — Present",
+    desc: "Optimizing Deep Neural Networks, working on real-time computer vision models, and benchmarking transformer architectures for edge devices.",
+    skills: ["PyTorch", "OpenCV", "TensorRT", "Python"]
+  },
+  {
+    role: "Junior Software Engineer",
+    company: "TechVerse Solutions",
+    period: "2023 — 2024",
+    desc: "Developed scalable REST APIs, automated data ingestion pipelines, and integrated machine learning endpoints into React web platforms.",
+    skills: ["Python", "FastAPI", "Docker", "PostgreSQL"]
+  }
+];
+
 const educationData = [
   {
     school: "Bangladesh University of Business and Technology (BUBT)",
-    degree: "B.Sc. in CSE (Major in AI & Robotics)",
-    location: "Dhaka, BD",
+    degree: "B.Sc. in Computer Science & Engineering",
+    major: "Major in AI & Robotics",
+    location: "Dhaka, Bangladesh",
     period: "2022 — Present",
-    desc: "Researching on Neural Networks and Machine Learning Optimization.",
-    icon: <FaMicrochip className="text-cyan-400" />
+    desc: "Focusing on Neural Networks, Computer Vision, Machine Learning Optimization, and Advanced Data Structures.",
+    icon: <FaGraduationCap className="text-cyan-400" />
   }
 ];
 
 const projectsData = [
   {
     title: "Neuro-Vision Bot",
-    tech: "Python, PyTorch",
-    desc: "Real-time object detection and pathfinding using CNN architecture.",
-    status: "98% Accuracy",
+    tech: "Python • PyTorch • YOLO",
+    desc: "Real-time object detection, segmentation, and autonomous pathfinding leveraging custom CNN architectures.",
+    metric: "98% Accuracy",
     icon: <FaRobot />
   },
   {
     title: "Eco-Predict AI",
-    tech: "TensorFlow, Pandas",
-    desc: "Predicting environmental changes using Time-Series Analysis.",
-    status: "Deploying",
+    tech: "TensorFlow • Pandas • Prophet",
+    desc: "Predicting micro-climate changes using time-series analysis and ensemble gradient boosting.",
+    metric: "Deployment Ready",
     icon: <FaProjectDiagram />
   }
 ];
 
-const skills = [
-  { name: "Deep Learning", level: "85%", icon: <FaBrain className="text-pink-500" /> },
-  { name: "ML Algorithms", level: "90%", icon: <FaNetworkWired className="text-blue-400" /> },
-  { name: "Data Analysis", level: "80%", icon: <SiPandas className="text-yellow-500" /> },
-  { name: "Backend Eng.", level: "75%", icon: <FaServer className="text-emerald-400" /> }
+const neuralSkills = [
+  { name: "Deep Learning & Neural Nets", level: "88%", icon: <FaBrain className="text-pink-400" /> },
+  { name: "Machine Learning Algorithms", level: "92%", icon: <FaNetworkWired className="text-cyan-400" /> },
+  { name: "Data Science & Analysis", level: "85%", icon: <SiPandas className="text-yellow-400" /> },
+  { name: "Backend & Model Deployment", level: "78%", icon: <FaServer className="text-emerald-400" /> }
 ];
 
-// 2. Main Component
+const techIcons = [
+  { Icon: SiPython, name: "Python", color: "hover:text-yellow-400" },
+  { Icon: SiPyTorch, name: "PyTorch", color: "hover:text-orange-500" },
+  { Icon: SiTensorflow, name: "TensorFlow", color: "hover:text-orange-400" },
+  { Icon: SiScikitlearn, name: "Scikit-Learn", color: "hover:text-blue-400" },
+  { Icon: SiPandas, name: "Pandas", color: "hover:text-purple-400" },
+  { Icon: SiNumpy, name: "NumPy", color: "hover:text-sky-400" },
+  { Icon: SiKeras, name: "Keras", color: "hover:text-red-500" },
+  { Icon: SiDocker, name: "Docker", color: "hover:text-blue-500" },
+  { Icon: SiJupyter, name: "Jupyter", color: "hover:text-orange-500" },
+];
+
 const Resume = () => {
   return (
-    <div className="min-h-screen  text-white px-6 md:px-20 py-16 relative overflow-hidden">
+    <div className="min-h-screen text-slate-100 py-6 relative overflow-hidden font-sans">
       
-      {/* Animated Background Particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(15)].map((_, i) => (
-          <motion.div
-            key={i}
-            animate={{
-              y: [0, -100, 0],
-              opacity: [0, 0.5, 0],
-            }}
-            transition={{ duration: Math.random() * 10 + 5, repeat: Infinity }}
-            className="absolute bg-cyan-500/10 rounded-full"
-            style={{
-              width: Math.random() * 10,
-              height: Math.random() * 10,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-          />
-        ))}
-      </div>
-
       {/* Header Section */}
       <motion.div 
-        initial={{ opacity: 0, y: -50 }} 
+        initial={{ opacity: 0, y: -20 }} 
         animate={{ opacity: 1, y: 0 }}
-        className="text-center mb-24 relative z-10"
+        transition={{ duration: 0.5 }}
+        className="text-center mb-16 relative z-10"
       >
-        <h1 className="text-6xl md:text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 mb-4 uppercase tracking-tighter">
+        <span className="px-3 py-1 text-xs font-mono tracking-widest uppercase text-cyan-400 bg-cyan-950/50 border border-cyan-500/20 rounded-full inline-block mb-3">
+          Curriculum Vitae
+        </span>
+        <h1 className="text-4xl md:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-sky-200 to-purple-500 uppercase tracking-tight">
           Engineering Resume
         </h1>
-        <div className="flex justify-center gap-4 text-xs font-mono text-cyan-500 tracking-[0.5em]">
-          <span>DATA SCIENCE</span> • <span>AI ENGINEERING</span> • <span>FULL STACK</span>
-        </div>
+        <p className="text-xs md:text-sm font-mono text-slate-400 mt-3 tracking-widest uppercase">
+          AI Engineer &bull; Machine Learning &bull; Data Science &bull; Full Stack
+        </p>
       </motion.div>
 
-      <div className="grid lg:grid-cols-12 gap-12 relative z-10">
+      <div className="grid lg:grid-cols-12 gap-10 relative z-10">
         
-        {/* Left Column (8 units) */}
-        <div className="lg:col-span-8 space-y-20">
+        {/* Left Main Content Column (8 Units) */}
+        <div className="lg:col-span-8 space-y-12">
           
-          {/* Education Section */}
+          {/* Professional Experience */}
           <section>
-            <h2 className="text-3xl font-bold flex items-center gap-4 mb-10">
-              <span className="p-3 bg-cyan-500/20 rounded-xl border border-cyan-500/30 shadow-neon-blue"><FaMicrochip /></span>
-              Educational Core
-            </h2>
-            {educationData.map((edu, idx) => (
-              <motion.div 
-                whileHover={{ scale: 1.02 }}
-                className="p-8 bg-gradient-to-r from-white/[0.03] to-transparent border border-white/10 rounded-3xl relative overflow-hidden group shadow-2xl"
-              >
-                <div className="absolute top-0 right-0 p-10 text-8xl text-white/[0.02] group-hover:text-cyan-500/10 transition-all"></div>
-                <h3 className="text-2xl font-black text-white">{edu.school}</h3>
-                <p className="text-cyan-400 font-mono mb-4">{edu.degree}</p>
-                <p className="text-gray-400 max-w-xl italic">"{edu.desc}"</p>
-              </motion.div>
-            ))}
-          </section>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="p-2.5 bg-cyan-500/10 rounded-xl border border-cyan-500/30 text-cyan-400">
+                <FaBriefcase size={18} />
+              </span>
+              <h2 className="text-2xl font-bold tracking-tight text-white uppercase">
+                Technical Experience
+              </h2>
+            </div>
 
-          {/* AI/ML Projects Section */}
-          <section>
-            <h2 className="text-3xl font-bold flex items-center gap-4 mb-10 uppercase">
-              <span className="p-3 bg-purple-500/20 rounded-xl border border-purple-500/30 shadow-neon-purple"><FaProjectDiagram /></span>
-              ML Repositories
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {projectsData.map((p, i) => (
+            <div className="space-y-6">
+              {experienceData.map((exp, idx) => (
                 <motion.div 
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  whileHover={{ y: -10 }}
-                  className="p-6 bg-[#0a0a0a] border border-white/10 rounded-[2rem] hover:border-purple-500/50 transition-all"
+                  key={idx}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.1 }}
+                  className="p-6 bg-[#070c1e]/60 border border-slate-800/80 hover:border-cyan-500/30 rounded-2xl transition-all duration-300 backdrop-blur-md"
                 >
-                  <div className="text-3xl text-purple-500 mb-4">{p.icon}</div>
-                  <h4 className="text-xl font-bold text-white mb-2">{p.title}</h4>
-                  <p className="text-xs text-cyan-400 font-mono mb-4 uppercase">{p.tech}</p>
-                  <p className="text-gray-500 text-sm mb-6">{p.desc}</p>
-                  <div className="flex justify-between items-center text-[10px] font-black tracking-widest text-gray-400 border-t border-white/5 pt-4">
-                    <span>ACCURACY: {p.status}</span>
-                    <span className="cursor-pointer hover:text-white uppercase">Source Code →</span>
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                    <h3 className="text-lg font-bold text-white">{exp.role}</h3>
+                    <span className="text-xs font-mono text-cyan-400 bg-cyan-950/60 border border-cyan-500/20 px-2.5 py-1 rounded-md w-fit">
+                      {exp.period}
+                    </span>
+                  </div>
+                  <p className="text-sm text-slate-400 font-medium mb-3">{exp.company}</p>
+                  <p className="text-sm text-slate-300 leading-relaxed mb-4">{exp.desc}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {exp.skills.map((s, i) => (
+                      <span key={i} className="text-[11px] font-mono text-slate-400 bg-slate-800/50 px-2.5 py-0.5 rounded-md border border-slate-700/40">
+                        #{s}
+                      </span>
+                    ))}
                   </div>
                 </motion.div>
               ))}
             </div>
           </section>
+
+          {/* Educational Core */}
+          <section>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="p-2.5 bg-purple-500/10 rounded-xl border border-purple-500/30 text-purple-400">
+                <FaGraduationCap size={20} />
+              </span>
+              <h2 className="text-2xl font-bold tracking-tight text-white uppercase">
+                Educational Core
+              </h2>
+            </div>
+
+            <div className="space-y-6">
+              {educationData.map((edu, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="p-6 bg-[#070c1e]/60 border border-slate-800/80 hover:border-purple-500/30 rounded-2xl transition-all duration-300 backdrop-blur-md"
+                >
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                    <h3 className="text-lg font-bold text-white">{edu.school}</h3>
+                    <span className="text-xs font-mono text-purple-400 bg-purple-950/60 border border-purple-500/20 px-2.5 py-1 rounded-md w-fit">
+                      {edu.period}
+                    </span>
+                  </div>
+                  <p className="text-sm text-cyan-400 font-medium mb-1">{edu.degree}</p>
+                  <p className="text-xs text-slate-400 font-mono mb-3">{edu.major} &bull; {edu.location}</p>
+                  <p className="text-sm text-slate-300 leading-relaxed italic">"{edu.desc}"</p>
+                </motion.div>
+              ))}
+            </div>
+          </section>
+
+          {/* AI/ML Repositories */}
+          <section>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="p-2.5 bg-emerald-500/10 rounded-xl border border-emerald-500/30 text-emerald-400">
+                <FaProjectDiagram size={18} />
+              </span>
+              <h2 className="text-2xl font-bold tracking-tight text-white uppercase">
+                Featured Projects
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-5">
+              {projectsData.map((p, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  whileHover={{ y: -4 }}
+                  className="p-5 bg-[#070c1e]/60 border border-slate-800/80 hover:border-emerald-500/40 rounded-2xl transition-all duration-300 flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex justify-between items-start mb-3">
+                      <div className="text-2xl text-emerald-400 p-2 bg-emerald-950/50 rounded-xl border border-emerald-500/20">
+                        {p.icon}
+                      </div>
+                      <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 px-2 py-0.5 rounded">
+                        {p.metric}
+                      </span>
+                    </div>
+                    <h3 className="text-base font-bold text-white mb-1">{p.title}</h3>
+                    <p className="text-xs text-cyan-400 font-mono mb-2">{p.tech}</p>
+                    <p className="text-xs text-slate-400 leading-relaxed mb-4">{p.desc}</p>
+                  </div>
+                  
+                  <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-medium text-slate-400">
+                    <span>Repository</span>
+                    <button className="flex items-center gap-1.5 text-cyan-400 hover:text-cyan-300 transition-colors">
+                      Source <FaExternalLinkAlt size={10} />
+                    </button>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </section>
+
         </div>
 
-        {/* Right Column (4 units) */}
-        <div className="lg:col-span-4 space-y-12">
+        {/* Right Sidebar Column (4 Units) */}
+        <div className="lg:col-span-4 space-y-8">
           
-          {/* Dashboard Style Skills */}
-          <div className="p-8 bg-white/[0.02] border border-white/10 rounded-[2.5rem] backdrop-blur-md">
-            <h3 className="text-xl font-black mb-8 uppercase tracking-widest text-center">Neural Skills</h3>
-            <div className="space-y-8">
-              {skills.map((s, i) => (
-                <div key={i} className="space-y-3">
-                  <div className="flex justify-between items-center px-2">
-                    <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-tighter">
+          {/* AI/ML Neural Skills */}
+          <div className="p-6 bg-[#070c1e]/60 border border-slate-800/80 rounded-2xl backdrop-blur-md">
+            <h3 className="text-base font-bold uppercase tracking-wider text-white mb-6 flex items-center gap-2">
+              <FaBrain className="text-pink-400" /> Neural Skills
+            </h3>
+            <div className="space-y-5">
+              {neuralSkills.map((s, i) => (
+                <div key={i} className="space-y-2">
+                  <div className="flex justify-between items-center text-xs">
+                    <span className="flex items-center gap-2 font-medium text-slate-200">
                       {s.icon} {s.name}
                     </span>
-                    <span className="text-[10px] font-mono text-cyan-500">{s.level}</span>
+                    <span className="font-mono text-cyan-400">{s.level}</span>
                   </div>
-                  <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+                  <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
                     <motion.div 
                       initial={{ width: 0 }}
                       whileInView={{ width: s.level }}
-                      transition={{ duration: 1.5, delay: i * 0.1 }}
-                      className="h-full bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full"
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, delay: i * 0.1 }}
+                      className="h-full bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full"
                     />
                   </div>
                 </div>
@@ -164,48 +258,43 @@ const Resume = () => {
             </div>
           </div>
 
-          {/* AI Tools Grid */}
-          <div className="grid grid-cols-2 gap-4">
-             {[SiPython, SiTensorflow, SiPytorch, SiKeras, SiNumpy, SiJupyter].map((Icon, i) => (
-               <motion.div 
-                 whileHover={{ scale: 1.1, rotate: 5 }}
-                 className="p-6 bg-white/[0.02] border border-white/5 rounded-2xl flex items-center justify-center text-3xl hover:bg-white/[0.05] transition-all"
-               >
-                 <Icon className="text-gray-500 hover:text-cyan-400 transition-colors" />
-               </motion.div>
-             ))}
+          {/* AI/ML Tech Stack Grid */}
+          <div className="p-6 bg-[#070c1e]/60 border border-slate-800/80 rounded-2xl backdrop-blur-md">
+            <h3 className="text-base font-bold uppercase tracking-wider text-white mb-4 flex items-center gap-2">
+              <FaTerminal className="text-cyan-400" /> Toolstack
+            </h3>
+            <div className="grid grid-cols-3 gap-3">
+              {techIcons.map(({ Icon, name, color }, i) => (
+                <motion.div 
+                  key={i}
+                  whileHover={{ scale: 1.05 }}
+                  className="p-3 bg-slate-900/60 border border-slate-800 rounded-xl flex flex-col items-center justify-center gap-1.5 group cursor-default"
+                >
+                  <Icon className={`text-2xl text-slate-400 transition-colors duration-200 ${color}`} />
+                  <span className="text-[10px] font-mono text-slate-400 group-hover:text-slate-200 transition-colors">
+                    {name}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
           </div>
 
-          {/* Achievement Box */}
+          {/* Honors & Achievements */}
           <motion.div 
-            whileHover={{ y: -5 }}
-            className="p-8 bg-gradient-to-br from-cyan-500/10 to-transparent border border-cyan-500/20 rounded-[2rem] text-center"
+            whileHover={{ y: -3 }}
+            className="p-6 bg-gradient-to-br from-cyan-950/30 via-purple-950/20 to-transparent border border-cyan-500/20 rounded-2xl text-center"
           >
-            <FaAward className="text-4xl text-yellow-400 mx-auto mb-4" />
-            <h4 className="font-bold text-white mb-2">BUBT CSE CARNIVAL</h4>
-            <p className="text-xs text-gray-500 italic">"Winner - Algorithm Challenge 2024"</p>
+            <div className="w-12 h-12 bg-amber-500/10 border border-amber-500/20 rounded-xl flex items-center justify-center mx-auto mb-3 text-amber-400">
+              <FaAward size={22} />
+            </div>
+            <h4 className="font-bold text-white text-sm">BUBT CSE CARNIVAL</h4>
+            <p className="text-xs text-cyan-400 font-mono mt-1">Winner — Algorithm Challenge</p>
+            <p className="text-xs text-slate-400 italic mt-2">Recognized for computational efficiency and problem solving.</p>
           </motion.div>
 
         </div>
+
       </div>
-
-      {/* Global CSS for Glows */}
-      <style>{`
-        .shadow-neon-blue { box-shadow: 0 0 20px rgba(6, 182, 212, 0.2); }
-        .shadow-neon-purple { box-shadow: 0 0 20px rgba(168, 85, 247, 0.2); }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: #050505; }
-        ::-webkit-scrollbar-thumb { background: #1e1e1e; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #22d3ee; }
-
-        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;700&display=swap');
-        
-        body { font-family: 'Space Grotesk', sans-serif; }
-        h1, h2, h3 { font-family: 'Syncopate', sans-serif; }
-      `}</style>
-
     </div>
   );
 };
