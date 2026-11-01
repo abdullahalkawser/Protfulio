@@ -137,7 +137,7 @@ const BlogSection = () => {
   const categories = ["All", "AI & ML", "Software Eng", "Networking", "Job Prep"];
 
   return (
-    <section className="bg-[#020617] text-white py-24 px-4 md:px-12 min-h-screen relative overflow-hidden font-sans">
+    <section className="bg-[#020617] text-white py-4 px-4 md:px-12 min-h-screen relative overflow-hidden font-sans">
       {/* Background Glowing Lights */}
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-pink-600/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
@@ -155,7 +155,7 @@ const BlogSection = () => {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-blue-500"
+            className="text-xl sm:text-6xl md:text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-blue-500"
           >
             EXPERT BLOGS & ARTICLES
           </motion.h2>
