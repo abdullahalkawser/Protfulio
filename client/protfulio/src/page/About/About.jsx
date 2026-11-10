@@ -362,7 +362,7 @@ export default function App() {
                     onError={(e) => {
                       // Fallback UI if image fails loading
                       e.target.onerror = null;
-                      e.target.src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80";
+                      e.target.src = "https://scontent.fdac41-1.fna.fbcdn.net/v/t39.30808-6/884349613_1693268262219538_8929469945985594919_n.jpg?stp=dst-jpg_tt6&cstp=mx1153x2048&ctp=s1153x2048&_nc_cat=101&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeE58fQ6fsENd32giaBJ5JnUEJWVp9EIf20QlZWn0Qh_bXn5-AoEg4KKNynn66yrNz7vB3_SVmLPAi7KYnl_f05h&_nc_ohc=OZ--dA8dVzMQ7kNvwHkdoQh&_nc_oc=AdrxJiS5b5JyLgfnMU0zDjuE0oixHpNDfVnMga6h9qBYlGSOYUGMUnIgY_ErljlrJng&_nc_zt=23&_nc_ht=scontent.fdac41-1.fna&_nc_gid=icEB2KzgfW_1Pg9rsCIiyQ&_nc_ss=7b2a8&oh=00_AQQzGsoyJfg2PwxYE-CydzJD3tBPFg7XOZKKrHmGGYdDbQ&oe=6AF8643F";
                     }}
                   />
                   {/* Subtle Gradient Overlay */}
